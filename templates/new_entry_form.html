@@ -5,9 +5,9 @@
 {% block content %}
 <h1>EXPRESS your thoughts!</h1>
 <form action="/new_entry" method="post">
-  <label for="title_field">Name you post</label>
+  <label for="title_field">Name your post</label>
   <input id="title_field" name="title" type="text" value="{{new_entry_title}}">
-
+  <br/>
   <label for="body_field"> Tell us all about this thought!</label>
   <textarea rows="4" cols="50" id="body_field" name="body">{{new_entry_body}}</textarea>
 
