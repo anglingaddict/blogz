@@ -12,7 +12,7 @@
       </h2>
 
       <p>{{entry.body}}</p>
-      <a href = "/blog?id={{owner_id}}">{{entry.usrnm}}</a>  <p>{{entry.created}}</p>
+      <p>Written by:</p> <a href = "/blog?id={{owner_id}}">{{entry.owner.usrnm}}</a>  <p>{{entry.created}}</p>
     </li>
   {% endfor %}
 
