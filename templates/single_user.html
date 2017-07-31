@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Entries for single user</h1>
+
+<ul>
+
+  {% for entry in single_user %}
+    <li>
+      <h2>
+        <a href="/blog?id={{entry.id}}">{{entry.title}}</a>
+      </h2>
+
+      <p>{{entry.body}}</p>
+      <a href = "/blog?id={{owner_id}}">{{entry.usrnm}}</a>  <p>{{entry.created}}</p>
+    </li>
+  {% endfor %}
+
+</ul>
+
+{% endblock %}

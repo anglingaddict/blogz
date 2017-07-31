@@ -10,7 +10,7 @@
           <a href="/blog?id={{entry.id}}">{{entry.title}}</a>
         </h2>
         <p>{{entry.body}}</p>
-        <p>{{entry.created}}</p>
+        <a href = "/blog?id={{owner_id}}">{{entry.usrnm}}</a> <p>{{entry.created}}</p>
       </li>
     {% endfor %}
   </ul>

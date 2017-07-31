@@ -77,12 +77,11 @@ def require_login():
         return redirect('/login')
 
 
-# index route for base URL redirected to correct route???
-# this route needs to query to find all users in database, return template that contains
-# a list of all the users
+#root route with index handler goes to index.html template displaying all users
 @app.route("/")
 def index():
-    return redirect("/blog")
+    all_users = User.query.filter_by(usrnm).all()
+    return render_template('index.html', title = "Home", all_users = all_users)
 
 # login route
 @app.route('/login', methods = ['POST', 'GET'])
@@ -192,16 +191,19 @@ def signup():
 @app.route("/blog")
 def display_blog_entries():
     entry_id = request.args.get('id')
+    user = request.args.get()
     if (entry_id):
         entry = Blog.query.get(entry_id)
         return render_template('single_entry.html', title = "Blog Entry", entry = entry)
 
+    if (user):
+        blogs = User.query.filter_by(blogs = blogs).all()
+
     #list all entries
-    sort = request.args.get('sort')
-    if (sort == "newest"):
-        all_entries = Blog.query.order_by(Blog.created.desc()).all()
+
     else:
         all_entries = Blog.query.all()
+
     return render_template('all_entries.html', title = "All Entries", all_entries = all_entries)
 
 
